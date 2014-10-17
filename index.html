@@ -1,97 +1,96 @@
+<!-- Splash screen -->
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!-- loading animation :: Used as a splash screen-->
-    <!-- https://gist.github.com/domsammut/4605377 -->
+    <title>Home Page</title>
+    <!-- http://codepen.io/fivera/pen/epbla -->
     <style type="text/css">
-    html {
-        background: #333333;
-    }
+    /* BODY */
+    @import url(http://fonts.googleapis.com/css?family=Titan+One);
+    /* BODY */
     body {
-        width: 100%;
-        height: 100%q;
-        margin: 0;
-        padding: 0;
-    }
-    @-webkit-keyframes rotate-loading {
-        0% {
-            -webkit-transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-    @-webkit-keyframes loading-text-opacity {
-        0% {
-            opacity: 0
-        }
-        20% {
-            opacity: 0
-        }
-        50% {
-            opacity: 1
-        }
-        100% {
-            opacity: 0
-        }
-    }
-    .loading-container,
-    .loading {
-        height: 199px;
-        position: relative;
-        width: 199px;
-        border-radius: 100%;
-    }
-    .loading-container {
-        margin: 80px auto;
-    }
-    .loading {
-        border: 2px solid transparent;
-        border-color: transparent #aaa transparent #aaa;
-        -webkit-animation: rotate-loading 1.5s linear 0s infinite normal;
-        -webkit-transform-origin: 50% 50%;
-    }
-    .loading-container .loading {
-        -webkit-transition: all 0.5s ease-in-out;
-    }
-    #loading-text {
-        -webkit-animation: loading-text-opacity 1.5s linear 0s infinite normal;
-        color: #ccc;
-        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-weight: bold;
-        margin-top: 72px;
-        opacity: 0;
         position: absolute;
-        text-align: center;
-        text-transform: uppercase;
         top: 0;
-        width: 188px;
-        font-size: 23px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: skyblue;
+        background-image: -webkit-linear-gradient(90deg, skyblue 0%, steelblue 100%);
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        overflow: hidden;
     }
+    ::selection {
+        background: transparent;
+    }
+    /* CLOUDS */
+    body:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        margin: auto;
+        border-radius: 100%;
+        background: transparent;
+        display: block;
+        box-shadow: 0 0 150px 100px rgba(255, 255, 255, .6), 200px 0 200px 150px rgba(255, 255, 255, .6), -250px 0 300px 150px rgba(255, 255, 255, .6), 550px 0 300px 200px rgba(255, 255, 255, .6), -550px 0 300px 200px rgba(255, 255, 255, .6);
+    }
+    /* JUMP */
     h1 {
+        cursor: default;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100px;
+        margin: auto;
+        display: block;
+        -webkit-animation: bounce .3s ease infinite alternate;
+        font-family: 'Titan One', cursive;
+        font-size: 80px;
+        color: #222;
         text-align: center;
-        color: #eee;
+        line-height: 100px;
+        text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .6);
+        margin-top: 45px;
+    }
+    /* ANIMATION */
+    @-webkit-keyframes bounce {
+        100% {
+            top: -30px;
+            text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3);
+        }
+    }
+    h3 {
+        position: relative;
+        top: 399px;
+        text-align: center;
+        font-size: 32px;
+        color: #ECECEC;
     }
     </style>
-    <script>
+    <script type="text/javascript">
     function init() {
         require('./app.js');
         setTimeout(function() {
-            window.location.assign('http://localhost:3000');
+            window.location.assign('http://localhost:3000/');
         }, 2999);
     }
     </script>
 </head>
 
 <body onload="init()">
-    <div class="loading-container">
-        <div class="loading"></div>
-        <div id="loading-text">
-            js-auth
-        </div>
-    </div>
-    <h1>Loading.. Please wait..</h1>
+    <h1>node-webkit
+        <br/>Firebase authentication</h1>
+    <h3>Loading... Please Wait..</h3>
 </body>
 
 </html>
