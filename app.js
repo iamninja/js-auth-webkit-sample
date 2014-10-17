@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
+app.get('/home', routes.home);
 app.get('/', routes.index);
 
 app.set('port', process.env.PORT || 3000);
