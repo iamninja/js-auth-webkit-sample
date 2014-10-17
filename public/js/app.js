@@ -14,3 +14,10 @@ function toggleFullscreen() {
 function closeWindow() {
     Window.close();
 }
+
+$(document).ready(function() {
+	$('#signup,#signin').click(function(event) {
+		event.preventDefault();
+		$('div.form-auth').toggle('500');
+	});
+});
